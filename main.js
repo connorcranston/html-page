@@ -1,5 +1,7 @@
-var leftContainer = document.querySelector('.left-container');
-var rightContainer = document.querySelector('.right-container');
+var leftButton = document.querySelector('.left-button');
+var rightButton = document.querySelector('.right-button');
+var leftInput = document.querySelector('.left-input');
+var rightInput = document.querySelector('.right-input');
 
 
 const crypto = function() {
@@ -10,20 +12,12 @@ const crypto = function() {
         dataType: 'json',
         success: function(data){
             console.log(data);   
-            for (var key in data) {
-                if (data[key] === 0) {
-                    leftContainer.innerHtml = `
-                    <div class="input-group">
-                    <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="button">${data[key].code}</button>
-                        </span>
-                    `
-                                        
-                } else{
+            
+            leftInput.value = data[0].rate;
+            leftButton.textContent = data[0].code;
 
-                }
-            } 
+            rightInput.value = data[1].rate;
+            rightButton.textContent = data[1].code;
         },
         error: function(error){
             console.log(error)

@@ -3,6 +3,15 @@ body{
 }
 
 .container{
+    height: 100vh;
     display: flex;
-    
+    align-items: center;
+}
+
+.left-container {
+    margin-right: 20px;
+}
+
+.right-container {
+    margin-left: 20px;
 }
